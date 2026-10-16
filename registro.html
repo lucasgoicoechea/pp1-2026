@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bermac - Crear cuenta</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h2 class="logo">Inmobiliaria Bermac</h2>
+
+        <nav class="navegacion">
+            <a href="index.html">Inicio</a>
+            <a href="#">Acerca De</a>
+            <a href="#">Nosotros</a>
+            <button class="boton" type="button"
+                onclick="location.href='login.html'">
+                Iniciar Sesión
+            </button>
+        </nav>
+    </header>
+
+    <div class="formulario">
+        <div class="ventanaLogin">
+
+            <form id="formRegistro">
+
+                <h1>Crear cuenta</h1>
+                <h2>¡Bienvenido a Bermac!</h2>
+
+                <div class="input-box">
+                    <input
+                        type="text"
+                        id="nombre"
+                        placeholder="Nombre completo"
+                        autocomplete="name"
+                        required>
+                </div>
+
+                <div class="input-box">
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Correo electrónico"
+                        autocomplete="email"
+                        required>
+                </div>
+
+                <div class="input-box">
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Crear contraseña"
+                        autocomplete="new-password"
+                        minlength="6"
+                        required>
+                </div>
+
+                <div class="input-box">
+                    <input
+                        type="password"
+                        id="confirmarPassword"
+                        placeholder="Confirmar contraseña"
+                        autocomplete="new-password"
+                        minlength="6"
+                        required>
+                </div>
+
+                <p id="mensaje"></p>
+
+                <button type="submit" id="botonSesion">
+                    Registrarme
+                </button>
+
+                <p>
+                    ¿Ya tenés una cuenta?
+                    <a href="login.html">Iniciá sesión aquí</a>
+                </p>
+
+            </form>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script src="registro.js"></script>
+
+</body>
+</html>

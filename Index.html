@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bermac - Iniciar sesión</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h2 class="logo">Inmobiliaria Bermac</h2>
+
+        <nav class="navegacion">
+            <a href="index.html">Inicio</a>
+            <a href="#">Acerca De</a>
+            <a href="#">Nosotros</a>
+            
+            <button class="boton" type="button"
+    onclick="window.location.href='login.html'">
+    Iniciar sesión
+            </button>
+
+        </nav>
+    </header>
+
+    <div class="formulario">
+        <div class="ventanaLogin">
+
+            <form id="formLogin">
+                <h1>Inicio de sesión</h1>
+                <h2>¡Bienvenido!</h2>
+
+                <div class="input-box">
+                    <input
+                        class="usuario"
+                        id="email"
+                        type="email"
+                        placeholder="Correo electrónico"
+                        autocomplete="email"
+                        required>
+                </div>
+
+                <div class="input-box">
+                    <input
+                        class="Contraseña"
+                        id="password"
+                        type="password"
+                        placeholder="Contraseña"
+                        autocomplete="current-password"
+                        required>
+                </div>
+
+                <p id="mensaje"></p>
+
+                <p>¿Olvidaste tu contraseña?</p>
+
+                <button type="submit" id="botonSesion">
+                    Iniciar sesión
+                </button>
+
+                <p>
+                    ¿Aún no tienes una cuenta?
+                    <a href="registro.html">Únete aquí</a>
+                </p>
+            </form>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script src="login.js"></script>
+    <script src="index.js"></script>
+
+</body>
+</html>
