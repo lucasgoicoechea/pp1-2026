@@ -1,38 +1,35 @@
 const Datos = document.getElementById("Datos");
 const msg = document.getElementById("msj");
 
-Datos.addEventListener("submit", function(event) {
+if (Datos) {
+    Datos.addEventListener("submit", async function (event) {
+        event.preventDefault();
+        msg.textContent = "Iniciando sesión...";
+        msg.className = "text-muted mt-3";
 
-    event.preventDefault();
+        const reg = {
+            user: document.getElementById("usuario").value.trim(),
+            pass: document.getElementById("password").value
+        };
 
-    const reg = {
-        user: document.getElementById("usuario").value,
-        pass: document.getElementById("password").value
-    };
+        try {
+            const respuesta = await fetch("login.php", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(reg)
+            });
+            const data = await respuesta.json();
 
-    fetch("login.php", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(reg)
-    })
+            msg.textContent = data.mensaje;
+            msg.className = data.ok ? "text-success mt-3" : "text-danger mt-3";
 
-    .then(respuesta => respuesta.json())
-
-    .then(data => {
-
-        msg.textContent = data.mensaje;
-
-        if (data.ok === true) {
-            window.location.href = "turnos.html";
+            if (data.ok) {
+                setTimeout(() => window.location.href = "turnoya.php", 250);
+            }
+        } catch (error) {
+            console.error(error);
+            msg.textContent = "No se pudo conectar con el servidor.";
+            msg.className = "text-danger mt-3";
         }
-
-    })
-
-    .catch(error => {
-        console.log(error);
-        msg.textContent = "Error al iniciar sesión";
     });
-
-});
+}
