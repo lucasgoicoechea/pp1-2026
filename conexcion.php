@@ -12,15 +12,14 @@ try {
         $password
     );
 
-    
     $conexion->setAttribute(
         PDO::ATTR_ERRMODE,
         PDO::ERRMODE_EXCEPTION
     );
     
-    
+
+
 } catch (PDOException $e) {
     http_response_code(500);
-    
     echo "Error de conexión: " . $e->getMessage();
 }
